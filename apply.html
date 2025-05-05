@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Therapy Application - Rare Support</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-600">Rare Disease Support Hub</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12">
+    <h1 id="form-title" class="text-3xl font-bold text-center mb-6"></h1>
+
+    <form id="therapy-form" class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg grid grid-cols-1 gap-6" action="#" method="post">
+      <!-- Hidden field for disease -->
+      <input type="hidden" name="disease" id="disease-input" value="">
+
+      <!-- Patient Information -->
+      <fieldset>
+        <legend class="text-xl font-semibold mb-4">Patient Information</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" name="fullName" placeholder="Full Name" class="p-3 rounded border w-full" required>
+          <input type="date" name="dob" placeholder="Date of Birth" class="p-3 rounded border w-full" required>
+          <input type="email" name="email" placeholder="Email Address" class="p-3 rounded border w-full" required>
+          <input type="tel" name="phone" placeholder="Phone Number" class="p-3 rounded border w-full" required>
+          <input type="text" name="address" placeholder="Address" class="p-3 rounded border w-full" required>
+        </div>
+      </fieldset>
+
+      <!-- Disease Details -->
+      <fieldset>
+        <legend class="text-xl font-semibold mb-4">Disease Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" name="diseaseName" id="disease-name" class="p-3 rounded border w-full uppercase" readonly>
+          <input type="date" name="diagnosisDate" placeholder="Diagnosis Date" class="p-3 rounded border w-full" required>
+          <label class="block w-full">
+            <span class="text-gray-700">Upload Genetic Test Report</span>
+            <input type="file" name="geneticReport" class="mt-1 p-2 border rounded w-full" required>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Conditional Sections -->
+      <fieldset id="ada-scid-fields" class="hidden">
+        <legend class="text-xl font-semibold mb-4">ADA-SCID Additional Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="block">
+            <span>Enzyme Activity Level (IU/mL)</span>
+            <input type="number" step="0.01" name="enzymeLevel" class="p-3 rounded border w-full">
+          </label>
+          <label class="block">
+            <span>Previous Enzyme Replacement Therapy?</span>
+            <select name="ertHistory" class="p-3 rounded border w-full">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset id="sickle-cell-disease-fields" class="hidden">
+        <legend class="text-xl font-semibold mb-4">Sickle Cell Disease Additional Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="block">
+            <span>Transfusion History (units/year)</span>
+            <input type="number" name="transfusionHistory" class="p-3 rounded border w-full">
+          </label>
+          <label class="block">
+            <span>Hydroxyurea Usage?</span>
+            <select name="hydroxyureaUsage" class="p-3 rounded border w-full">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset id="other-disease-fields" class="hidden">
+        <legend class="text-xl font-semibold mb-4">Additional Details</legend>
+        <div class="grid grid-cols-1 gap-4">
+          <textarea name="otherDetails" placeholder="Please describe any additional relevant details" class="p-3 rounded border w-full"></textarea>
+        </div>
+      </fieldset>
+
+      <!-- Treatment Team -->
+      <fieldset>
+        <legend class="text-xl font-semibold mb-4">Treatment Team</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" name="physician" placeholder="Treating Physician" class="p-3 rounded border w-full" required>
+          <input type="text" name="institution" placeholder="Medical Institution" class="p-3 rounded border w-full" required>
+        </div>
+      </fieldset>
+
+      <!-- Insurance Information -->
+      <fieldset>
+        <legend class="text-xl font-semibold mb-4">Insurance Information</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" name="insuranceProvider" placeholder="Insurance Provider" class="p-3 rounded border w-full" required>
+          <input type="text" name="policyNumber" placeholder="Policy Number" class="p-3 rounded border w-full" required>
+        </div>
+      </fieldset>
+
+      <!-- Consent -->
+      <fieldset>
+        <legend class="text-xl font-semibold mb-4">Consent</legend>
+        <label class="flex items-center space-x-2">
+          <input type="checkbox" name="consent" class="form-checkbox" required>
+          <span>I consent to provide my information for therapy evaluation.</span>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="bg-blue-600 text-white font-semibold px-6 py-3 rounded hover:bg-blue-700">Submit Application</button>
+    </form>
+  </main>
+
+  <footer class="bg-white py-6">
+    <div class="container mx-auto text-center">
+      <p class="text-sm">© 2025 RareSupport. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function getQueryParam(name) {
+      return new URLSearchParams(window.location.search).get(name) || '';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const diseaseSlug = getQueryParam('disease');
+      let displayName = diseaseSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      displayName = displayName.toUpperCase();
+
+      // Set dynamic title
+      document.getElementById('form-title').textContent = `${displayName} THERAPY APPLICATION`;
+      // Populate hidden and readonly fields
+      document.getElementById('disease-name').value = displayName;
+      document.getElementById('disease-input').value = displayName;
+
+      // Hide all conditional sections
+      ['ada-scid-fields', 'sickle-cell-disease-fields', 'other-disease-fields'].forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+      });
+
+      // Show the relevant section
+      if (diseaseSlug === 'ada-scid') {
+        document.getElementById('ada-scid-fields').classList.remove('hidden');
+      } else if (diseaseSlug === 'sickle-cell-disease') {
+        document.getElementById('sickle-cell-disease-fields').classList.remove('hidden');
+      } else if (diseaseSlug === 'other') {
+        document.getElementById('other-disease-fields').classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

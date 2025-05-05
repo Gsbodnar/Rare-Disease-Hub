@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rare Disease Support Hub</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600">Rare Disease Support Hub</a>
+      <nav class="space-x-6">
+        <a href="#resources" class="hover:text-blue-600">Resources</a>
+        <a href="#community" class="hover:text-blue-600">Community</a>
+        <a href="#stories" class="hover:text-blue-600">Stories</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-100 py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl font-extrabold mb-4">Navigating the Path Forward Together</h1>
+      <p class="text-lg mb-8">Connecting patients and families facing rare diseases with trusted resources, community support, and hope.</p>
+      <!-- Disease Selector -->
+      <div class="mb-6">
+        <select id="disease-select" class="p-3 rounded w-full max-w-xs mx-auto">
+          <option value="" disabled selected>Select Your Rare Disease</option>
+          <option value="ADA-SCID">Adenosine Deaminase Deficiency</option>
+          <option value="Sickle Cell Disease">Sickle Cell Disease</option>
+          <option value="SMA">Spinal Muscular Atrophy</option>
+          <option value="Ehlers-Danlos Syndrome">Ehlers-Danlos Syndrome</option>
+          <option value="Cystic Fibrosis">Cystic Fibrosis</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Explore</a>
+    </div>
+  </section>
+
+  <!-- Resources, Community, Stories as before -->
+  <!-- Resources Section -->
+  <section id="resources" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Resources</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Educational Materials</h3>
+        <p>Clear articles, guides, and videos to help you understand your condition and treatment options.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Clinical Trials</h3>
+        <p>Stay informed about ongoing studies and eligibility in rare disease research.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold mb-2">Financial Aid</h3>
+        <p>Find grants, assistance programs, and fundraising tips to ease the cost burden.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Community Section -->
+  <section id="community" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-8">Community</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Discussion Forums</h3>
+          <p>Share experiences, ask questions, and find comfort in talking with others who understand.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Support Groups</h3>
+          <p>Join virtual and local meetups for emotional support and friendship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Patient Stories Section -->
+  <section id="stories" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">Patient & Family Stories</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <img src="https://via.placeholder.com/300x200" alt="Story 1" class="rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Life After Diagnosis</h3>
+        <p>A family's journey from shock to advocacy and hope.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <img src="https://via.placeholder.com/300x200" alt="Story 2" class="rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Finding a Clinical Trial</h3>
+        <p>How one patient connected with researchers and found new treatments.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow">
+        <img src="https://via.placeholder.com/300x200" alt="Story 3" class="rounded mb-4" />
+        <h3 class="text-xl font-semibold mb-2">Overcoming Challenges</h3>
+        <p>Stories of resilience, community, and making a difference.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-white py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="mb-4">© 2025 RareSupport. All rights reserved.</p>
+      <div class="space-x-4">
+        <a href="#" class="hover:text-blue-600">Privacy Policy</a>
+        <a href="#" class="hover:text-blue-600">Terms of Use</a>
+        <a href="mailto:contact@raresupport.org" class="hover:text-blue-600">contact@raresupport.org</a>
+      </div>
+    </div>
+  </footer>
+
+   <!-- JavaScript for disease-specific navigation -->
+  <script>
+    document.getElementById('disease-select').addEventListener('change', function() {
+      var disease = this.value;
+      if (disease) {
+        var slug = disease.toLowerCase().replace(/ /g, '-').replace(/[^a-z0-9\-]/g, '');
+        window.location.href = 'apply.html?disease=' + slug;
+      }
+    });
+  </script>
+</body>
+</html>
