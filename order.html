@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Therapy - RareSupport</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-600">Rare Disease Support Hub</a>
+      <nav class="space-x-6 flex">
+        <a href="patients.html" class="hover:text-blue-600">Patients</a>
+        <a href="professionals.html" class="hover:text-blue-600">Professionals</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Form Section -->
+  <main class="container mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-center mb-8">Therapy Order Form</h1>
+    <form id="order-form" action="#" method="post" class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg grid gap-6">
+      <!-- Therapy Selector -->
+      <div>
+        <label for="disease-select" class="block text-lg font-semibold mb-2">Select Therapy</label>
+        <select id="disease-select" name="disease" class="w-full p-3 border rounded" required>
+          <option value="" disabled selected>-- Choose Therapy --</option>
+          <option value="ada-scid">Adenosine Deaminase Deficiency (ADA-SCID)</option>
+          <option value="sickle-cell-disease">Sickle Cell Disease</option>
+          <option value="sma">Spinal Muscular Atrophy</option>
+          <option value="ehlers-danlos-syndrome">Ehlers-Danlos Syndrome</option>
+          <option value="cystic-fibrosis">Cystic Fibrosis</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <!-- Patient Demographics -->
+      <fieldset class="border rounded p-4">
+        <legend class="font-semibold">Patient Demographics</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="text" name="patientName" placeholder="Patient Full Name" class="p-3 border rounded" required>
+          <input type="date" name="patientDOB" class="p-3 border rounded" required>
+          <input type="text" name="patientID" placeholder="Medical Record #" class="p-3 border rounded" required>
+          <input type="text" name="patientWeight" placeholder="Weight (kg)" class="p-3 border rounded" required>
+        </div>
+      </fieldset>
+
+      <!-- Ordering Physician -->
+      <fieldset class="border rounded p-4">
+        <legend class="font-semibold">Ordering Physician</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="text" name="physicianName" placeholder="Name" class="p-3 border rounded" required>
+          <input type="text" name="physicianContact" placeholder="Contact Number" class="p-3 border rounded" required>
+          <input type="email" name="physicianEmail" placeholder="Email Address" class="p-3 border rounded" required>
+          <input type="text" name="institution" placeholder="Medical Institution" class="p-3 border rounded" required>
+        </div>
+      </fieldset>
+
+      <!-- Clinical Details -->
+      <fieldset class="border rounded p-4">
+        <legend class="font-semibold">Clinical Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="date" name="diagnosisDate" class="p-3 border rounded" required>
+          <input type="text" name="therapyType" placeholder="Therapy Type/Dose" class="p-3 border rounded" required>
+          <input type="text" name="route" placeholder="Route of Administration" class="p-3 border rounded" required>
+          <input type="text" name="frequency" placeholder="Frequency" class="p-3 border rounded" required>
+        </div>
+      </fieldset>
+
+      <!-- Disease-specific Sections -->
+      <fieldset id="ada-scid-fields" class="hidden border rounded p-4">
+        <legend class="font-semibold">ADA-SCID Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="number" step="0.01" name="enzymeLevel" placeholder="Enzyme Activity Level (IU/mL)" class="p-3 border rounded">
+          <select name="ertHistory" class="p-3 border rounded">
+            <option value="" disabled selected>Prior ERT?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset id="sickle-cell-disease-fields" class="hidden border rounded p-4">
+        <legend class="font-semibold">Sickle Cell Disease Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="number" name="transfusionHistory" placeholder="Transfusions (units/yr)" class="p-3 border rounded">
+          <select name="hydroxyureaUsage" class="p-3 border rounded">
+            <option value="" disabled selected>Hydroxyurea Usage?</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset id="sma-fields" class="hidden border rounded p-4">
+        <legend class="font-semibold">SMA Details</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <select name="smaType" class="p-3 border rounded">
+            <option value="" disabled selected>SMA Type</option>
+            <option value="I">Type I</option>
+            <option value="II">Type II</option>
+            <option value="III">Type III</option>
+          </select>
+          <input type="date" name="lastTreatmentDate" class="p-3 border rounded" placeholder="Last Treatment Date">
+        </div>
+      </fieldset>
+
+      <fieldset id="other-fields" class="hidden border rounded p-4">
+        <legend class="font-semibold">Additional Details</legend>
+        <textarea name="additionalDetails" rows="4" placeholder="Specify other clinical details" class="w-full p-3 border rounded"></textarea>
+      </fieldset>
+
+      <!-- Logistics & Consent -->
+      <fieldset class="border rounded p-4">
+        <legend class="font-semibold">Logistics & Consent</legend>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input type="text" name="shippingAddress" placeholder="Ship to Address" class="p-3 border rounded" required>
+          <input type="date" name="desiredStartDate" class="p-3 border rounded" required>
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" name="consent" required>
+            <span>Confirm patient consent and insurance approval.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Submit Button -->
+      <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700">Submit Order</button>
+    </form>
+  </main>
+
+  <script>
+    const fields = {
+      'ada-scid': 'ada-scid-fields',
+      'sickle-cell-disease': 'sickle-cell-disease-fields',
+      'sma': 'sma-fields',
+      'other': 'other-fields'
+    };
+    document.getElementById('disease-select').addEventListener('change', function() {
+      Object.values(fields).forEach(id => document.getElementById(id).classList.add('hidden'));
+      const sel = this.value;
+      if (fields[sel]) document.getElementById(fields[sel]).classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
+
